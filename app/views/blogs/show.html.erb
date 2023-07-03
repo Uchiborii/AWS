@@ -1,0 +1,16 @@
+<h1>レシピ詳細</h1>
+
+<table>
+  <tbody>
+    <tr>
+      <td><%= image_tag @blog.picture.url %></td>
+    </tr>
+    <tr>
+      <th>内容</th>
+      <td><%= @blog.content %></td>
+    </tr>
+  </tbody>
+</table>
+
+<%= link_to "編集", edit_blog_path(@blog) %>
+<%= link_to "戻る", blogs_path %>

@@ -1,0 +1,25 @@
+<div class="blog_post">
+  <%= form_with(model: @blog, local: true) do |form| %>
+
+    <% if @blog.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= @blog.errors.count %>件のエラーがあります。</h2>
+        <ul>
+          <% @blog.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= form.label :picture, "画像" %>
+    <%= image_tag(@blog.picture.image.url) if @blog.picture.present? && @blog.picture.image.url.present? %>
+    <%= form.file_field :picture %>
+    <%= form.hidden_field :picture_cache %>
+
+    <%= form.label :content, "内容" %>
+    <%= form.text_field :content %>
+
+    <%= form.submit %>
+  <% end %>
+</div>
