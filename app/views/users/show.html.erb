@@ -1,0 +1,11 @@
+<h1><%= @user.name %>のページ</h1>
+
+
+<p><% @user.blogs.each do |blog|%></p>
+    <p><%= blog.content %></p>
+    <p><%= image_tag blog.picture.url, size: "150x150" %></p>
+<p><% end %></p>
+
+<%= link_to '新規投稿', new_blog_path(@user) %>
+<%= link_to '編集', edit_user_path(@user) %>
+<%= link_to "一覧", blogs_path %>

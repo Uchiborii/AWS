@@ -12,6 +12,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'bcrypt'  # 追加
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -39,7 +39,7 @@ def destroy
 end
 
 def blog_params
-  params.require(:blog).permit(:photo, :title, :content, :photo_cache)
+  params.require(:blog).permit(:picture, :content, :picture_cache)
 end
 end
 

@@ -9,12 +9,12 @@ class UsersController < ApplicationController
       redirect_to blogs_path
     end
   end
-  
+
   def update
     @user = User.find(params[:id])
-    if @user.create(user_params)
+    if @user.update(user_params)
       redirect_to user_path(@user), notice: "編集しました"
-    elsif 
+    else
       render :edit
     end
   end
@@ -30,14 +30,16 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.password_digest = BCrypt::Password.create(@user.password_digest)
+
     if @user.save
-      flash[:success] = "登録が完了しました!"
+      flash[:success] = "登録が完了しました！"
       redirect_to user_path(@user)
     else
       render :new
     end
   end
-  
+
   def show
     @user = User.find(params[:id])
   end
@@ -45,7 +47,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:user_name, :email, :password, :profile,
-                                 :password_confirmation)
+    params.require(:user).permit(:name, :email)
   end
 end
