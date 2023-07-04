@@ -34,12 +34,17 @@ def update
 end
 
 def destroy
-  @blog.destroy
-  redirect_to blogs_path, notice: "削除しました"
+  @blog = Blog.find(params[:id])
+
+  if @blog.destroy
+    redirect_to blogs_path, notice: 'ブログを削除しました。'
+  else
+    redirect_to blogs_path, alert: 'ブログの削除に失敗しました。'
+  end
 end
 
 def blog_params
-  params.require(:blog).permit(:picture, :content, :picture_cache)
+  params.require(:blog).permit(:picture, :content, :picture)
 end
 end
 
