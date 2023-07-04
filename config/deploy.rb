@@ -2,7 +2,7 @@
 lock "~> 3.16.0"
 
 set :application, "achieve"
-set :repo_url, "https://github.com/Uchiborii/AWS.git"
+set :repo_url, "https://github.com/Uchiborii/AWS"
 set :branch, ENV['BRANCH'] || 'master'
 set :deploy_to, '/var/www/achieve'
 # シンボリックリンクをはるフォルダ・ファイル

@@ -15,6 +15,8 @@ gem 'mini_magick'
 gem 'bcrypt'
 gem 'fog-aws'
 gem 'dotenv-rails'
+gem 'dotenv-rails' # 開発環境で環境変数を操作するのに必要
+gem 'unicorn' # アプリケーションサーバのunicorn
 
 group :development, :test do
   gem 'capistrano', '3.16.0' # capistranoのツール一式
